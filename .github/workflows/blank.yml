@@ -14,7 +14,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Run a one-line script
-      run: php $files=array('README.md','Autohash.php');foreach($files as $file){$hash.=hash('sha256', file_get_contents($file)).' '.$file."\n";}file_put_contents("hash.txt",$hash);
+      run: php Autohash.php
     - name: Commit changed files
       uses: stefanzweifel/git-auto-commit-action@v2.5.0
       with:
