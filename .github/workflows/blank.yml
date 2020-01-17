@@ -7,13 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v1
-    - name: Run a one-line script
       run: echo ${{ github.head_ref }} >> a.txt
     - uses: stefanzweifel/git-auto-commit-action@v2.5.0
       with:
         commit_message: Apply automatic changes
         branch: ${{ github.head_ref }}
-        commit_options: '--no-verify --signoff'
         file_pattern: a.txt
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
