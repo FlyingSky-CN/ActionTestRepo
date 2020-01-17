@@ -14,6 +14,6 @@ jobs:
         commit_message: Apply automatic changes
         branch: ${{ github.head_ref }}
         commit_options: '--no-verify --signoff'
-        file_pattern: *
+        file_pattern: a.txt
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
