@@ -6,13 +6,14 @@ jobs:
   run:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
     - name: Run a one-line script
-      run: echo ${{ github.head_ref }} >> a.txt
-    - uses: stefanzweifel/git-auto-commit-action@v2.5.0
+      uses: actions/checkout@v1
+      run: echo ls >> a.txt
+    - name: Commit changed files
+      uses: stefanzweifel/git-auto-commit-action@v2.5.0
       with:
-        commit_message: Apply automatic changes
+        commit_message: Apply php-cs-fixer changes
         branch: ${{ github.head_ref }}
-        file_pattern: a.txt
+        file_pattern: src/\*.txt
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
